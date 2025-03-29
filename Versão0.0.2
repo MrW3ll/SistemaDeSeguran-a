@@ -1,4 +1,4 @@
-sing System;
+using System;
 
 namespace SistemaDeSegurança0_0_2 {
     internal class Program {
@@ -9,29 +9,37 @@ namespace SistemaDeSegurança0_0_2 {
             string Password = "123456";
             string login;
             string key;
+            int tentativas = 0;
 
             //Entrada de dados
-
             while(true) {
 
-                Console.WriteLine("Bem Vindo! Favor informe Login e Senha");
-                login = Console.ReadLine();
-
-                if(login != User) {
-                    Console.WriteLine("login não registrado");
+                if(tentativas >= 3) {
+                    Console.WriteLine("Numero de tentativas atingido");
                     break;
                 } else {
-                    Console.WriteLine("Usuario validado!\nDigite a senha para prosseguir:");
-                    key = Console.ReadLine();
-                    if(key != Password) {
-                        Console.WriteLine("Senha incorreta! Favor verificar");
-                        break;
+
+                    Console.WriteLine("Bem Vindo! Favor informe Login e Senha");
+                    login = Console.ReadLine();
+
+                    if(login != User) {
+                        Console.WriteLine("login não registrado");
+                        tentativas++;
+                        
                     } else {
-                        Console.WriteLine("Login efetuado com sucesso");
+                        Console.WriteLine("Usuario validado!\nDigite a senha para prosseguir:");
+                        key = Console.ReadLine();
+                        if(key != Password) {
+                            Console.WriteLine("Senha incorreta! Favor verificar");
+                            tentativas++;
+                            
+                        } else {
+                            Console.WriteLine("Login efetuado com sucesso");
+                        }
                     }
                 }
-
             }
+
             Console.WriteLine("Pressione qualquer tecla para finalizar");
             Console.ReadKey();
 
