@@ -1,0 +1,40 @@
+sing System;
+
+namespace SistemaDeSegurança0_0_2 {
+    internal class Program {
+        static void Main(string[] args) {
+
+            // Banco de dados
+            string User = "Admin";
+            string Password = "123456";
+            string login;
+            string key;
+
+            //Entrada de dados
+
+            while(true) {
+
+                Console.WriteLine("Bem Vindo! Favor informe Login e Senha");
+                login = Console.ReadLine();
+
+                if(login != User) {
+                    Console.WriteLine("login não registrado");
+                    break;
+                } else {
+                    Console.WriteLine("Usuario validado!\nDigite a senha para prosseguir:");
+                    key = Console.ReadLine();
+                    if(key != Password) {
+                        Console.WriteLine("Senha incorreta! Favor verificar");
+                        break;
+                    } else {
+                        Console.WriteLine("Login efetuado com sucesso");
+                    }
+                }
+
+            }
+            Console.WriteLine("Pressione qualquer tecla para finalizar");
+            Console.ReadKey();
+
+        }
+    }
+}
